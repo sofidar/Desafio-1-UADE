@@ -49,11 +49,11 @@ def generar_pases(jugadoras_arg, jugadoras_aus):
 
     # Iteramos 50000 veces de forma no condicional, y asignamos valores a cada variable, que seran agregados a la lista que devolvera la funcion
     for _ in range(50000):
-        equipo = random.choice(["Argentina", "Australia"])
+        equipo = random.choice(["Argentina", "Australia"]) # Random elige entre ambos paises
         jugadoras = jugadoras_arg if equipo == "Argentina" else jugadoras_aus
-        jugador = random.choice(jugadoras)
-        minutos = random.randint(1, 90)
-        resultado = random.choice([0, 1])
+        jugador = random.choice(jugadoras) #Random elige entre las jugadoras del pais seleccionado al azar
+        minutos = random.randint(1, 90) # Se selecciona el minuto del pase al azar entre 1 y 90
+        resultado = random.choice([0, 1]) # Indica si el pase fue concretado (1) o si no lo fue (0)
         pases.append(f"{equipo};{jugador[1]};{jugador[0]};{resultado};{minutos}\n")
     return pases
 
