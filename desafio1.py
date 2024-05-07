@@ -1,5 +1,7 @@
+# Importa el modulo random
 import random
 
+# Inicializa las listas con jugadoras de Argentina
 jugadoras_arg=[
     ("Agustina Albertario", 19), 
     ("Cristina Cosentino", 13), 
@@ -20,6 +22,7 @@ jugadoras_arg=[
     ("María Pilar Campoy", 23)
 ]
 
+# Inicializa las listas con jugadoras de Australia
 jugadoras_aus=[
     ("Ashlee Wells", 5), 
     ("Jocelyn Bartram", 19), 
@@ -39,9 +42,12 @@ jugadoras_aus=[
     ("Jane Claxton", 18)
 ]
 
-
+# Generar pases al azar
 def generar_pases(jugadoras_arg, jugadoras_aus):
+    """Genera y devuelve una lista de 50000 pases al azar realizados por las jugadoras de un equipo (las jugadoras salen de la lista pasada como argumento)"""
     pases = []
+
+    # Iteramos 50000 veces de forma no condicional, y asignamos valores a cada variable, que seran agregados a la lista que devolvera la funcion
     for _ in range(50000):
         equipo = random.choice(["Argentina", "Australia"])
         jugadoras = jugadoras_arg if equipo == "Argentina" else jugadoras_aus
@@ -53,5 +59,6 @@ def generar_pases(jugadoras_arg, jugadoras_aus):
 
 pases = generar_pases(jugadoras_arg, jugadoras_aus)
 
+# Crea el archivo con la funcion open(), y en caso que este ya haya sido creado, lo sobreescribe
 with open("pases.txt", "w") as file:
     file.writelines(pases)
